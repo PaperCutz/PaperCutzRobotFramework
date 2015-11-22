@@ -1,0 +1,46 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{9E479E9A-A789-BCC0-957E-45EBDD4F350E}") = "Hackathon RAUL 2.1", "Assembly-CSharp.csproj", "{F95EFAD6-29D9-0364-DFB3-711FAE00988C}"
+EndProject
+Project("{9E479E9A-A789-BCC0-957E-45EBDD4F350E}") = "Hackathon RAUL 2.1", "Assembly-CSharp-Editor.csproj", "{D2E93B3A-F8B6-E509-5116-2D8F238F445C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F95EFAD6-29D9-0364-DFB3-711FAE00988C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F95EFAD6-29D9-0364-DFB3-711FAE00988C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F95EFAD6-29D9-0364-DFB3-711FAE00988C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F95EFAD6-29D9-0364-DFB3-711FAE00988C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2E93B3A-F8B6-E509-5116-2D8F238F445C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2E93B3A-F8B6-E509-5116-2D8F238F445C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2E93B3A-F8B6-E509-5116-2D8F238F445C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2E93B3A-F8B6-E509-5116-2D8F238F445C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+																																																																															GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+		Policies = $0
+		$0.TextStylePolicy = $1
+		$1.inheritsSet = null
+		$1.scope = text/x-csharp
+		$0.CSharpFormattingPolicy = $2
+		$2.inheritsSet = Mono
+		$2.inheritsScope = text/x-csharp
+		$2.scope = text/x-csharp
+		$0.TextStylePolicy = $3
+		$3.FileWidth = 120
+		$3.TabWidth = 4
+		$3.IndentWidth = 4
+		$3.EolMarker = Unix
+		$3.inheritsSet = Mono
+		$3.inheritsScope = text/plain
+		$3.scope = text/plain
+	EndGlobalSection
+
+EndGlobal

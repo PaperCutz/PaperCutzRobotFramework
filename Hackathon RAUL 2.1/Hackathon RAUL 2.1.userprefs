@@ -1,0 +1,15 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\OVR\Scripts\OVRPlugin.cs">
+    <Files>
+      <File FileName="Assets\serialSend.cs" Line="19" Column="1" />
+      <File FileName="Assets\OVR\Scripts\OVRPlugin.cs" Line="347" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="C:\Users\Hypnotoad\Documents\Hackathon RAUL 2.1\Assets\OVR\Scripts\OVRPlugin.cs" line="347" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
