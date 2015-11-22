@@ -1,17 +1,14 @@
 #include <Wire.h>
-#include <Adafruit_MotorShield.h>
-#include <Servo.h>
-#include "utility/Adafruit_PWMServoDriver.h"
+#include <AFMotor.h>
 
-//arduino code that interfaces with the oculus rift
-
+//Code that goes with Papercutz.py to control a robot using a sainsmart motorshield.
 //defines motorsheild as an object, always the same
-Adafruit_MotorShield AFMS = Adafruit_MotorShield(); 
 
-Adafruit_DCMotor *right = AFMS.getMotor(4);
-Adafruit_DCMotor *left = AFMS.getMotor(3);
-Servo tilt;
-Servo pan;
+
+AF_DCMotor right(1);
+AF_DCMotor left(2);
+AF_DCMotor weapon(4);
+
 //right motor in port m1
 //left motor in port m2
 
@@ -19,46 +16,47 @@ Servo pan;
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
-  AFMS.begin();
-  
-  tilt.attach(10);
-  pan.attach(9);
+
 }
-int tilt_val = 128;
-int pan_val = 128;
-int i;
 String in;
-int y_pow=128;
+int w_pow=128;
+int y_pow=150;
 int x_pow=128;
 int r_pow=128;
 int l_pow=128;
 void loop() {
   // put your main code here, to run repeatedly:
-  if(Serial.available()){
-   delay(5);
-   pan_val = Serial.read();
-   tilt_val = Serial.read();
-   x_pow = Serial.read();
-   y_pow = Serial.read();
-   
-//   Serial.print(Serial.read());
-//   Serial.print(Serial.read());
-//   Serial.print(Serial.read());
-//   Serial.println(Serial.read());
- //  if(tilt_val <=70){
-//tilt_val = 70;
-//   }
-   }
-  
+  if(Serial.available()>0){
+    delay(5);
+   char cmd = Serial.read();
+ 
+  if(cmd == 121){
+   in=Serial.readStringUntil(':');
+    Serial.println(cmd+in);
+   y_pow = 100*(in[0]-'0')+10*(in[1]-'0')+in[2]-'0';
+ 
+  }else if(cmd == 120){
+   in=Serial.readStringUntil(':');
+     Serial.println(cmd+in);
+   x_pow = 100*(in[0]-'0')+10*(in[1]-'0')+in[2]-'0';
+  } else if(cmd == 115){
+    in=Serial.readStringUntil(':');
+      Serial.println(in);
+    100*(in[0]-'0')+10*(in[1]-'0')+in[2]-'0';
+  } else if(cmd==119) {
+    in=Serial.readStringUntil(':');
+   w_pow = 100*(in[0]-'0')+10*(in[1]-'0')+in[2]-'0';
+    
+  }
+}
 r_pow = map((y_pow-128)-(x_pow-128),-255,255,255,0);
 l_pow = map((y_pow-128)+(x_pow-128),-255,255,255,0);
- motor_drive(right,255-r_pow);
+ motor_drive(weapon,w_pow);
+ motor_drive(right,r_pow);
  motor_drive(left,l_pow);
- tilt.write(tilt_val);
- pan.write(pan_val);
-delay(15);
-
+delay(5);
 }
+
 unsigned char motor_mag(unsigned char x){
  //will take value that is zero at 128 and convert to 0 to 255
    unsigned char r; 
@@ -85,7 +83,7 @@ unsigned char motor_dir(unsigned char x){
   return r;
 }
 
-void motor_drive(Adafruit_DCMotor *motor, unsigned char input){
-  motor->run(motor_dir(input));
-  motor->setSpeed(motor_mag(input));
+void motor_drive(AF_DCMotor motor, unsigned char input){
+  motor.run(motor_dir(input));
+  motor.setSpeed(motor_mag(input));
 }
